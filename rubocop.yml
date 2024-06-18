@@ -1,0 +1,169 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-minitest
+
+inherit_mode:
+  merge:
+    - Exclude
+
+AllCops:
+  SuggestExtensions: false
+  DisabledByDefault: true
+  Exclude:
+    - "data/**/*"
+    - "public/**/*"
+    - "tmp/**/*"
+    - "log/**/*"
+    - "node_modules/**/*"
+    - "storage/**/*"
+
+# ----------------------------------------------------
+# Bundler cops
+# ----------------------------------------------------
+
+Bundler:
+  Enabled: true
+
+# ----------------------------------------------------
+# Gemspec cops
+# ----------------------------------------------------
+
+Gemspec:
+  Enabled: true
+
+# ----------------------------------------------------
+# Layout cops
+# ----------------------------------------------------
+
+Layout:
+  Enabled: true
+
+# Allow empty lines around the body of a class except for the namespace.
+Layout/EmptyLinesAroundClassBody:
+  EnforcedStyle: empty_lines_except_namespace
+
+# Allow empty lines around the body of a module except for the namespace.
+Layout/EmptyLinesAroundModuleBody:
+  EnforcedStyle: empty_lines_except_namespace
+
+# Align `end` with the matching keyword or starting expression except for
+# assignments, where it should be aligned with the LHS.
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: variable
+  AutoCorrect: true
+
+# Use `{a: 1}` not `{ a:1 }`.
+# Use `{}` not `{  }`.
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+  EnforcedStyleForEmptyBraces: no_space
+
+# ----------------------------------------------------
+# Lint cops
+# ----------------------------------------------------
+
+Lint:
+  Enabled: true
+
+# ----------------------------------------------------
+# Metrics cops
+# ----------------------------------------------------
+
+Metrics:
+  Enabled: false
+
+# ----------------------------------------------------
+# Migration cops
+# ----------------------------------------------------
+
+Migration:
+  Enabled: true
+
+# ----------------------------------------------------
+# Naming cops
+# ----------------------------------------------------
+
+Naming:
+  Enabled: true
+
+# ----------------------------------------------------
+# Security cops
+# ----------------------------------------------------
+
+Security:
+  Enabled: true
+
+# ----------------------------------------------------
+# Style cops
+# ----------------------------------------------------
+
+Style:
+  Enabled: true
+
+# We generally prefer &&/|| but like low-precedence and/or in context
+Style/AndOr:
+  Enabled: false
+
+# Do now enforce documentation comments
+Style/Documentation:
+  Enabled: false
+
+# Do not check for frozen string literals comment
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# Use Ruby >= 1.9 syntax for hashes but not mixed keys.
+# Allow shorthand syntax but don't enforce it.
+Style/HashSyntax:
+  EnforcedStyle: ruby19_no_mixed_keys
+  EnforcedShorthandSyntax: either
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    default: "()"
+    "%i": "[]"
+    "%I": "[]"
+    "%r": "{}"
+    "%w": "[]"
+    "%W": "[]"
+
+Style/RedundantReturn:
+  AllowMultipleReturnValues: true
+
+# Allow ; to separate several expressions on the same line
+Style/Semicolon:
+  AllowAsExpressionSeparator: true
+
+# Use `"foo"` not `'foo'` unless escaping is required
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+# Use brackets for symbol arrays
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+# ----------------------------------------------------
+# Performance cops
+# ----------------------------------------------------
+
+Performance:
+  Enabled: true
+  Exclude:
+    - "test/**/*"
+
+# ----------------------------------------------------
+# Rails cops
+# ----------------------------------------------------
+
+Rails:
+  Enabled: true
+
+# ----------------------------------------------------
+# Minitest cops
+# ----------------------------------------------------
+
+Minitest:
+  Enabled: true
+  Include:
+    - "test/**/*"
